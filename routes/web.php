@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ParticipantsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,15 @@ Route::get('/', function () {
 });
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
-    return view('dash.index');
-})->name('dash');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+
 
 Route::resource('eventos', 'App\Http\Controllers\EventController');
+
+
+Route::resource('participantes', 'App\Http\Controllers\ParticipantsController');
 
 // Auth::routes();
 

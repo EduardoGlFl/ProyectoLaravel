@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Event;
+use App\Models\Participants;
 
-class EventController extends Controller
+class ParticipantsController extends Controller
 {
-    public function __construct()
-    {
+    public function __construct(){
         $this->middleware('auth');
     }
 
@@ -19,8 +18,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventos = Event::all();
-        return view('evento.index',['eventos' => $eventos]);
+        $participantes = Participants::all();
+        return view('participantes.index',['participantes' => $participantes]);
     }
 
     /**
@@ -30,7 +29,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('evento.create');
+        return view('participantes.create');
     }
 
     /**
@@ -42,15 +41,17 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'fechaInicio' => 'required',
-            'fechaFin' => 'required',
+            'nombres' => 'required|unique:participants',
+            'apellidoPaterno' => 'required',
+            'apellidoMaterno' => 'required',
+            'genero' => 'required',
+            'email' => 'required',
+            'telefono' => 'required',
         ]);
 
-        Event::create($request->all());
+        Participants::create($request->all());
 
-        return redirect('/eventos');
+        return redirect('/participantes');
     }
 
     /**
@@ -70,9 +71,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $evento)
+    public function edit(Participants $participante)
     {
-        return view ('evento.edit',compact('evento'));
+        return view ('participantes.edit',compact('participante'));
     }
 
     /**
@@ -84,18 +85,19 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $evento = Event::find($id);
+        $participantes = Participants::find($id);
 
         $request->validate([
-            'nombre' => 'required',
-            'descripcion' => 'required',
-            'fechaInicio' => 'required',
-            'fechaFin' => 'required',
+            'nombres' => 'required',
+            'apellidoPaterno' => 'required',
+            'apellidoMaterno' => 'required',
+            'genero' => 'required',
+            'email' => 'required',
+            'telefono' => 'required',
         ]);
 
-        $evento->update($request->all());
-        return redirect('/eventos')->with('success','Post updated successfully');;
-
+        $participantes->update($request->all());
+        return redirect('/participantes')->with('success','Post updated successfully');;
     }
 
     /**
@@ -106,8 +108,8 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $evento = Event::find($id);
-        $evento->delete();
-        return redirect('/eventos');
+        $participante = Participants::find($id);
+        $participante->delete();
+        return redirect('/participantes');
     }
 }
