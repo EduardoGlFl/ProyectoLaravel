@@ -1,15 +1,16 @@
-@extends('layouts.plantillabase')
+@extends('adminlte::page')
 
-@section('css')
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
-@endsection
+@section('title', 'Dashboard')
 
-@section('contenido')
-    <h2 class="text-center">Eventos</h2>
+@section('content_header')
+    <h1 class="text-center">Eventos</h1>
+@stop
+
+@section('content')
     <table id="eventos" class="table table-striped" style="width:100%">
       <thead>
         <tr>
-          <th scope="col">#</th>
+          {{-- <th scope="col">#</th> --}}
           <th scope="col">Nombre</th>
           <th scope="col">Descripcion</th>
           <th scope="col">Fecha de inicio</th>
@@ -20,7 +21,7 @@
       <tbody>
         @foreach($eventos as $evento)
           <tr>
-            <td>{{$evento['id']}}</td>
+            {{-- <td>{{$evento['id']}}</td> --}}
             <td>{{$evento['nombre']}}</td>
             <td>{{$evento['descripcion']}}</td>
             <td>{{$evento['fechaInicio']}}</td>
@@ -37,9 +38,20 @@
         @endforeach
       </tbody>
     </table>
-    <div class="d-grid gap-2 col-6 mx-auto">
-      <a href="eventos/create" class="btn btn-primary" type="button">Registrar Evento</a>
+    <div class="row justify-content-md-center">
+      <div class=" col-md-auto">
+        <a href="eventos/create" class="btn btn-primary" type="button">Registrar Nuevo Evento</a>
+      </div>
+      <div class=" col-md-auto">
+        <a href="evento-participante" class="btn btn-primary" type="button">Registrar Participante a Evento</a>
+      </div>
     </div>
+
+@stop
+
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+@stop
 
 @section('js')
     <script src="https://code.jquery.com/jquery-3.5.1.js"> </script>
@@ -52,6 +64,4 @@
           });
       } );
     </script>
-@endsection
-
-@endsection
+@stop

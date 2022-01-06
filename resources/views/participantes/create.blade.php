@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Registro de Participantes')
+@section('title', 'Dashboard')
 
 @section('content_header')
     <h1>Registrar nuevo participante</h1>
@@ -54,11 +54,12 @@
                     <label for="inputAddress2" class="form-label">Telefono</label>
                     <input id="telefono" name="telefono" type="telephone" class="form-control" placeholder="**********">
                   </div>
+                  <div class="d-grid gap-2 col-6">
+                    <button class="btn btn-primary" type="submit">Registrar Participante</button>
+                  </div>
                 </form>
             </div>
-            <div class="d-grid gap-2 col-6">
-              <button class="btn btn-primary" type="submit">Registrar Participante</button>
-            </div>
+            
         </div>
 @stop
 

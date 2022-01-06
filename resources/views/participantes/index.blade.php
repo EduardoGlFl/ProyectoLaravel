@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Participantes')
+@section('title', 'Dashboard')
 
 @section('content_header')
     <h1 class="text-center" >Participantes</h1>
@@ -41,10 +41,11 @@
             @endforeach
           </tbody>
         </table>
-        <div class="d-grid gap-2 mx-auto">
-          <a href="participantes/create" class="btn btn-primary" type="button">Registrar Participante</a>
+        <div class="row justify-content-md-center">
+          <div class=" col-md-auto">
+            <a href="participantes/create" class="btn btn-primary" type="button">Registrar Participante</a>
+          </div>
         </div>
-      </div>
 @stop
 
 @section('css')
