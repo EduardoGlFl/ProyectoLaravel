@@ -26,8 +26,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::resource('eventos', 'App\Http\Controllers\EventController');
-
-
 Route::resource('participantes', 'App\Http\Controllers\ParticipantsController');
 
 // Auth::routes();
