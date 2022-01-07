@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoríasController;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\ParticipantsController;
+use App\Http\Controllers\EventParticipantsController;
+use App\Http\Controllers\TipoInstitucionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,32 @@ use App\Http\Controllers\CategoríasController;
 |
 */
 use Illuminate\Support\Facades\View;
+
+Route::get('/', function () {
+    return view('auth.login');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+
+Route::resource('eventos', 'App\Http\Controllers\EventController');
+
+Route::resource('participantes', 'App\Http\Controllers\ParticipantsController');
+
+Route::resource('evento-participante', 'App\Http\Controllers\EventParticipantsController');
+
+Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionController');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('events', [EventController::class, 'show']);
+
+
+
+
 
 /*Route::get('/', function () {
     return view('welcome');
@@ -31,7 +61,7 @@ use Illuminate\Support\Facades\View;
     }
 });*/
 
-Route::get('/admin/{nom}', [CategoríasController::class, 'ver']);
+/*Route::get('/admin/{nom}', [CategoríasController::class, 'ver']);
 
 Route::get('hi', function(){
     echo 'Hola mundo';
@@ -54,6 +84,7 @@ Route::get('user/profile',
 
 Route::view('bienvenido', 'welcome', 
     ['name'=> 'Juan']);
+*/
 
 
 
