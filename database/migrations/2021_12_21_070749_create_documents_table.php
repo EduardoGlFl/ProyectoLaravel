@@ -15,12 +15,13 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id('id');
-            $table->int('numero');
+            $table->timestamps();
+            $table->string('numero');
             $table->boolean('generado');
             $table->boolean('entregado');
             $table->string('archivo',255); 
-            $table->datetime('fechaGenereado');
-            $table->datetime('fechaEntregado');
+            $table->date('fechaGenereado');
+            $table->date('fechaEntregado');
         });
     }
 

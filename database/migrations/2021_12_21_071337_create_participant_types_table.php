@@ -15,6 +15,7 @@ class CreateParticipantTypesTable extends Migration
     {
         Schema::create('participant_types', function (Blueprint $table) {
             $table->id('id');
+            $table->timestamps();
             $table->string('tipo',100); 
         });
     }

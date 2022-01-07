@@ -15,12 +15,12 @@ class CreateEventParticipantsTable extends Migration
     {
         Schema::create('event_participants', function (Blueprint $table) {
             $table->id('id');
-            $table->int('events_id'); 
-            $table->int('participants_id'); 
-            $table->int('participantType_id'); 
-            $table->int('documents_id');            
-            $table->int('Institutions_id');
-
+            $table->timestamps();
+            $table->foreignId('events_id')->constrained(); 
+            $table->foreignId('participants_id')->constrained(); 
+            $table->foreignId('participant_types_id')->constrained(); 
+            $table->foreignId('documents_id')->constrained(); 
+            $table->foreignId('institutions_id')->constrained();
 
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventParticipantTypesTable extends Migration
+class CreatePurchasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateEventParticipantTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('event_participant_types', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->id('id');
-            $table->int('events_id'); 
-            $table->int('participantTypes_id'); 
-            $table->string('plantillaDocumento',255);            
-            $table->int('documentTypes_id');
-
+            $table->timestamps();
+            $table->boolean('pagado');
+            $table->date('fechaHora');
+            $table->float('subtotal');
+            $table->float('iva'); 
+            $table->float('total');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateEventParticipantTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_participant_types');
+        Schema::dropIfExists('purchases');
     }
 }

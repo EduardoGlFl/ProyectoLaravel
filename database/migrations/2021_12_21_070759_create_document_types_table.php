@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInstitutionsTable extends Migration
+class CreateDocumentTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateInstitutionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('institutions', function (Blueprint $table) {
+        Schema::create('document_types', function (Blueprint $table) {
             $table->id('id');
-            $table->string('nombreCorto',45);
-            $table->string('nombreLargo',45);
-            $table->int('institutionTypes_id');
-
+            $table->timestamps();
+            $table->string('tipo',50);
+            $table->string('descripcion',100);
         });
     }
 
@@ -29,6 +28,6 @@ class CreateInstitutionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('institutions');
+        Schema::dropIfExists('document_types');
     }
 }
