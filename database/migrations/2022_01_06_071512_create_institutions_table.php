@@ -18,7 +18,7 @@ class CreateInstitutionsTable extends Migration
             $table->timestamps();
             $table->string('nombreCorto', 45);
             $table->string('nombreLargo', 45);
-            $table->foreignId('institutionTypes_id')->constrained();
+            // $table->foreignId('institutiontype_id')->constrained();
         });
     }
 

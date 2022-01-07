@@ -28,6 +28,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('eventos', 'App\Http\Controllers\EventController');
 Route::resource('participantes', 'App\Http\Controllers\ParticipantsController');
 
+
+Route::resource('institutiontypes', 'App\Http\Controllers\InstitutionTypesController');
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

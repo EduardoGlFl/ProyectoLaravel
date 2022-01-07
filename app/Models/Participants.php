@@ -14,6 +14,5 @@ class Participants extends Model
     ];
 
     public $timestamps = false;
-
     protected $table = 'participants';
 }

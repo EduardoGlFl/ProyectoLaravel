@@ -18,9 +18,14 @@ class CreateEventparticipantsTable extends Migration
             $table->timestamps();
             $table->foreignId('event_id')->constrained();
             $table->foreignId('participant_id')->constrained();
-            $table->foreignId('participantType_id')->constrained();
-            $table->foreignId('documents_id')->constrained();
-            $table->foreignId('institutions_id')->constrained();
+            // $table->foreignId('participantType_id')->constrained();
+            // $table->foreignId('documents_id')->constrained();
+            $table->foreignId('institution_id')->constrained();
+
+            // $table->unsignedBigInteger('institution_id');
+
+            // $table->foreign('institution_id')->references('id')->on('institutions');
+
         });
     }
 
