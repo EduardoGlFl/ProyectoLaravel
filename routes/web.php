@@ -15,6 +15,10 @@ use App\Http\Controllers\CategoríasController;
 */
 use Illuminate\Support\Facades\View;
 
+/*Route::get('/', function () {
+    return view('welcome');
+});*/
+
 /*Route::get('/admin', function() {
     if(View::exists('nanagement.adminfront1')) {
         return view('management.adminfront', ['nameAdmin' => 'Principal']);
@@ -53,6 +57,3 @@ Route::view('bienvenido', 'welcome',
 
 
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
