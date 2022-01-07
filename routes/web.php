@@ -6,6 +6,7 @@ use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\EventParticipantsController;
 use App\Http\Controllers\TipoInstitucionController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,9 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+/*use App\Http\Controllers\CategoríasController;
+Route::get('/admin/{nom}', [CategoríasController::class, 'ver']);
+*/
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard.index');
@@ -41,4 +45,3 @@ Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionControll
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::get('events', [EventController::class, 'show']);
-
