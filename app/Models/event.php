@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class event extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nombre', 'descripcion', 'fechaInicio', 'fechaFin'
+    ];
+
+    public $timestamps = false;
 }
