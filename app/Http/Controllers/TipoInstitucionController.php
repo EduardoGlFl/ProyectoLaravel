@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Participant;
+use App\Models\institutionType;
 
-class ParticipantsController extends Controller
+class TipoInstitucionController extends Controller
 {
-    public function __construct(){
+
+
+    public function __construct()
+    {
         $this->middleware('auth');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +20,10 @@ class ParticipantsController extends Controller
      */
     public function index()
     {
-        $participantes = Participant::all();
-        return view('participantes.index',['participantes' => $participantes]);
+        //
+        $tipoinstitucion = institutionType::all();
+        return view('tipoinstitucion.index',['tipoinstitucion' => $tipoinstitucion]);
+        
     }
 
     /**
@@ -27,9 +31,10 @@ class ParticipantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( )
     {
-        return view('participantes.create');
+        //
+        return view('tipoinstitucion.create');
     }
 
     /**
@@ -40,19 +45,15 @@ class ParticipantsController extends Controller
      */
     public function store(Request $request)
     {
+        //
         $request->validate([
-            'nombres' => 'required|unique:participants',
-            'apellidoPaterno' => 'required',
-            'apellidoMaterno' => 'required',
-            'genero' => 'required',
-            'email' => 'required',
-            'telefono' => 'required',
+            'tipo' => 'required',
         ]);
 
-        Participant::create($request->all());
-
-        return redirect('/participantes');
+        institutionType::create($request->all());
+        return redirect('/tipoinstitucion');
     }
+    
 
     /**
      * Display the specified resource.
@@ -63,6 +64,7 @@ class ParticipantsController extends Controller
     public function show($id)
     {
         //
+      
     }
 
     /**
@@ -71,9 +73,10 @@ class ParticipantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Participant $participante)
+    public function edit(institutionType $tipoinstitucion )
     {
-        return view ('participantes.edit',compact('participante'));
+        //
+        return view('tipoinstitucion.edit', compact('tipoinstitucion'));
     }
 
     /**
@@ -85,20 +88,16 @@ class ParticipantsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $participantes = Participant::find($id);
+        //
+        $tipoinstitucion = institutionType::find($id);
 
         $request->validate([
-            'nombres' => 'required',
-            'apellidoPaterno' => 'required',
-            'apellidoMaterno' => 'required',
-            'genero' => 'required',
-            'email' => 'required',
-            'telefono' => 'required',
+            'tipo' => 'required',
         ]);
 
-        $participantes->update($request->all());
-        return redirect('/participantes')->with('success','Post updated successfully');;
-    }
+        $tipoinstitucion->update($request->all());
+        return redirect('/tipoinstitucion')->with('success', 'Tipo de institución actualizado correctamente');
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -108,8 +107,9 @@ class ParticipantsController extends Controller
      */
     public function destroy($id)
     {
-        $participante = Participant::find($id);
-        $participante->delete();
-        return redirect('/participantes');
+        //
+        $tipoinstitucion = institutionType::find($id);
+        $tipoinstitucion->delete();
+        return redirect('/tipoinstitucion')->with('success', 'Tipo de institución eliminado correctamente');
     }
 }

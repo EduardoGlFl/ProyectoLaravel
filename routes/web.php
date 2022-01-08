@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\EventParticipantsController;
+use App\Http\Controllers\TipoInstitucionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,10 @@ Route::resource('eventos', 'App\Http\Controllers\EventController');
 Route::resource('participantes', 'App\Http\Controllers\ParticipantsController');
 
 Route::resource('evento-participante', 'App\Http\Controllers\EventParticipantsController');
+
+Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionController');
+
+Route::resource('institucion', 'App\Http\Controllers\InstitucionController');
 
 // Auth::routes();
 
