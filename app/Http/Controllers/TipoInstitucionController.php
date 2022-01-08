@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\institutionType;
 
-class EventParticipantsController extends Controller
+class TipoInstitucionController extends Controller
 {
+
 
     public function __construct()
     {
@@ -18,7 +20,10 @@ class EventParticipantsController extends Controller
      */
     public function index()
     {
-        return view('evento-participante.index');
+        //
+        $tipoinstitucion = institutionType::all();
+        return view('tipoinstitucion.index',['tipoinstitucion' => $tipoinstitucion]);
+        
     }
 
     /**
@@ -26,9 +31,10 @@ class EventParticipantsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create( )
     {
         //
+        return view('tipoinstitucion.create');
     }
 
     /**
@@ -40,7 +46,14 @@ class EventParticipantsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'tipo' => 'required',
+        ]);
+
+        institutionType::create($request->all());
+        return redirect('/tipoinstitucion');
     }
+    
 
     /**
      * Display the specified resource.
@@ -51,6 +64,7 @@ class EventParticipantsController extends Controller
     public function show($id)
     {
         //
+      
     }
 
     /**
@@ -59,9 +73,10 @@ class EventParticipantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(institutionType $tipoinstitucion )
     {
         //
+        return view('tipoinstitucion.edit', compact('tipoinstitucion'));
     }
 
     /**
@@ -74,7 +89,15 @@ class EventParticipantsController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
+        $tipoinstitucion = institutionType::find($id);
+
+        $request->validate([
+            'tipo' => 'required',
+        ]);
+
+        $tipoinstitucion->update($request->all());
+        return redirect('/tipoinstitucion')->with('success', 'Tipo de institución actualizado correctamente');
+     }
 
     /**
      * Remove the specified resource from storage.
@@ -85,5 +108,8 @@ class EventParticipantsController extends Controller
     public function destroy($id)
     {
         //
+        $tipoinstitucion = institutionType::find($id);
+        $tipoinstitucion->delete();
+        return redirect('/tipoinstitucion')->with('success', 'Tipo de institución eliminado correctamente');
     }
 }

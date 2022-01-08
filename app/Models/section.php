@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class event extends Model
+class section extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'nombre', 'descripcion', 'fechaInicio', 'fechaFin'
+        'descripcion',
+        'precio',
     ];
-
-    public $timestamps = false;
 }
