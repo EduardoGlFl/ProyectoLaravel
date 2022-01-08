@@ -3,32 +3,32 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1 class="text-center">Sección de Ticket </h1>
+<h1 class="text-center">Tickets</h1>
 @stop
 
 @section('content')
 <table  class="table table-striped" style="width:100%">
   <thead>
     <tr>
-      
-      <!-- <th scope="col">ID</th> -->
-      <th scope="col">Descripción</th>
+      <!-- {{-- <th scope="col">#</th> --}} -->
+      <th scope="col">ID</th>
+      <th scope="col">Descripcion</th>
       <th scope="col">Precio</th>
       <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
-    @foreach($section as $sec)
+    @foreach($tickets as $ticket)
     <tr>
       
-      
-      <!-- <th scope="row">{{$sec->id}}</th>       -->
-      <td>{{$sec['descripcion']}}</td>
-      <td>$ {{$sec['precio']}} MX</td>
+
+      <td>{{$ticket['id']}}</td>
+      <td>{{$ticket['descripcion']}}</td>
+      <td>$ {{$ticket['precio']}} MX</td>
       
       <td>
-        <form action="{{route('section.destroy', $sec->id)}}" method="POST">
-          <a class="btn btn-info" href="{{ route('section.edit',$sec->id) }}">Editar</a>
+        <form action="{{route('ticket.destroy', $ticket->id)}}" method="POST">
+          <a class="btn btn-info" href="{{ route('ticket.edit',$ticket->id) }}">Editar</a>
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" onclick="return confirm('¿Desea eliminar?...')">Borrar</button>
@@ -40,7 +40,7 @@
 </table>
 <div class="row justify-content-md-center">
   <div class=" col-md-auto">
-    <a href="section/create" class="btn btn-primary" type="button">Registrar Nuevo de Detalles de Sección </a>
+    <a href="ticket/create" class="btn btn-primary" type="button">Registrar Nuevo Ticket</a>
   </div>
 
 </div>

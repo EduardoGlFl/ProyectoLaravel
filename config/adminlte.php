@@ -261,6 +261,13 @@ return [
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Tickets',
+            'url'         => '/ticket',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 'Registrar',
+            'label_color' => 'success',
+        ],
        
         [
             'text'        => 'Institución',
@@ -278,16 +285,16 @@ return [
             'label'       => 'Sub table',
         ],
         [
-            'text'       => 'Section',
+            'text'       => 'Sección',
             'icon_color' => 'warning',
             'url'        => '/section',
             'label'       => 'Sub table',
         ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
+        // [
+        //     'text'       => 'Tickets',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '/ticket',
+        // ],
         [
             'text'       => 'information',
             'icon_color' => 'cyan',

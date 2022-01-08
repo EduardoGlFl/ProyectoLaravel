@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Registrar Sección de Ticket</h1>
+    <h1>Registrar Tipo Institución  </h1>
 @stop
 
 @section('content')
@@ -14,18 +14,20 @@
       @endforeach
     </div>
     @endif
-    <form action="{{route('section.store')}}" method="POST">
+    <form action="{{route('ticket.store')}}" method="POST">
       @csrf
       
-      <div class="mb-3">
-        <label for="" class="form-label">Descripción </label>
-        <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="1" >
-      </div>
+   
 
       <div class="mb-3">
-        <label for="" class="form-label">Precio </label>
-        <input id="precio" name="precio" type="text" class="form-control" tabindex="1" >
-      </div>
+          <label for="" class="form-label">Detalle Ticket</label>
+          <select name="section_id" id="section_id" class="form-control" tabindex="3">
+          <option value="">--- Seleccioné ticket  ---</option>
+             @foreach($section as $sec)
+             <option value="{{$sec->id}}" ><span class="p-4 text-gray-500 bg-red">Descripción:</span> {{$sec-> descripcion}} Precio:${{$sec-> precio}} MX</option>
+             @endforeach
+          </select>
+        </div>
       
    
     
@@ -33,7 +35,7 @@
 
      
 
-      <a href="/section" class="btn btn-secondary" tabindex="5">Cancelar</a>
+      <a href="/ticket" class="btn btn-secondary" tabindex="5">Cancelar</a>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 

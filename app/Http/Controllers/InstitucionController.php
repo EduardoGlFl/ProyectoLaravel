@@ -87,7 +87,6 @@ class InstitucionController extends Controller
    
     {
         //
-        
         $instituciontypes = institutionType::all();
         return view('institucion.edit', ['institucion' => $institucion, 'instituciontypes' => $instituciontypes]);
     }
