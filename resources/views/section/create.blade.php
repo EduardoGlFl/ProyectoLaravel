@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Registrar Detalles de Sección </h1>
 @stop
 
 @section('content')
@@ -14,35 +14,29 @@
       @endforeach
     </div>
     @endif
-    <form action="{{route('institucion.update',$institucion->id)}}" method="POST">
+    <form action="{{route('section.store')}}" method="POST">
       @csrf
-      @method('PUT')
+      
       <div class="mb-3">
-        <label for="" class="form-label">Nombre Corto</label>
-        <input id="nombreCorto" name="nombreCorto" type="text" class="form-control" value="{{$institucion->nombreCorto}}" tabindex="1" >
+        <label for="" class="form-label">Descripción </label>
+        <input id="descripcion" name="descripcion" type="text" class="form-control" tabindex="1" >
+      </div>
+
+      <div class="mb-3">
+        <label for="" class="form-label">Precio </label>
+        <input id="precio" name="precio" type="text" class="form-control" tabindex="1" >
       </div>
       
-      <div class="mb-3">
-          <label for="" class="form-label">Nombre Largo</label>
-          <input id="nombreLargo" name="nombreLargo" type="text" class="form-control" value="{{$institucion->nombreLargo}}" tabindex="2" >
-        </div>
+   
     
-        <div class="mb-3">
-          <label for="" class="form-label">Tipo</label>
-          <select name="institution_types_id" id="institution_types_id" class="form-control" tabindex="3">            
-            @foreach($instituciontypes as $ti)
-            <option value="{{$ti->id}}" >{{$ti-> tipo}}</option>
-            @endforeach     
-         
-          </select>
-        </div>
-      
-
     
 
-    <a href="/eventos" class="btn btn-secondary" tabindex="5">Cancelar</a>
+     
+
+      <a href="/section" class="btn btn-secondary" tabindex="5">Cancelar</a>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
+
 @stop
 
 @section('css')

@@ -261,13 +261,7 @@ return [
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
-        [
-            'text'        => 'Tipos Institución',
-            'url'         => 'tipoinstitucion',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 'Registrar',
-            'label_color' => 'success',
-        ],
+       
         [
             'text'        => 'Institución',
             'url'         => 'institucion',
@@ -278,9 +272,16 @@ return [
 
         ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'       => 'Tipo Institución',
+            'icon_color' => 'warning',
+            'url'        => '/tipoinstitucion',
+            'label'       => 'Sub table',
+        ],
+        [
+            'text'       => 'Section',
+            'icon_color' => 'warning',
+            'url'        => '/section',
+            'label'       => 'Sub table',
         ],
         [
             'text'       => 'warning',

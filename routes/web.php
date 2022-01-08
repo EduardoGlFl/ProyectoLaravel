@@ -38,6 +38,8 @@ Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionControll
 
 Route::resource('institucion', 'App\Http\Controllers\InstitucionController');
 
+Route::resource('section', 'App\Http\Controllers\SectionController');
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
