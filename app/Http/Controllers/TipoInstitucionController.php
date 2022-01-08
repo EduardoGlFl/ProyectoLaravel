@@ -23,11 +23,7 @@ class TipoInstitucionController extends Controller
         //
         $tipoinstitucion = institutionType::all();
         return view('tipoinstitucion.index',['tipoinstitucion' => $tipoinstitucion]);
-        // response()->json(['tipo-institucion'=>$tipoinstitucion], 201,
-        // ['Content-Type' => 'application/json']);
-      
-        // return view('tipo-institucion.index',['tipo-institucion' => $tipoinstitucion]);
-        // return response()-> view('tipo-institucion.index',compact('tipoinstitucion'));
+        
     }
 
     /**

@@ -36,6 +36,8 @@ Route::resource('evento-participante', 'App\Http\Controllers\EventParticipantsCo
 
 Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionController');
 
+Route::resource('institucion', 'App\Http\Controllers\InstitucionController');
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

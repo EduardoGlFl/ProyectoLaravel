@@ -268,6 +268,13 @@ return [
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
+        [
+            'text'        => 'Institución',
+            'url'         => 'institucion',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 'Registrar',
+            'label_color' => 'success',
+        ],
 
         ['header' => 'labels'],
         [
