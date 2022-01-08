@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoríasController;
+use App\Http\Controllers\PeticionesController;
+
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\EventParticipantsController;
@@ -19,6 +21,7 @@ use App\Http\Controllers\TipoInstitucionController;
 */
 use Illuminate\Support\Facades\View;
 
+/**/
 Route::get('/', function () {
     return view('auth.login');
 });
@@ -59,9 +62,13 @@ Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionControll
         return View::make('welcome')->with('nombre','Juan')
                                     ->with('apellido', 'Pérez');
     }
-});*/
+});*/ 
 
 /*Route::get('/admin/{nom}', [CategoríasController::class, 'ver']);
+
+//Pruebas de  método de objetos Request
+Route::get('/peticion', [PeticionesController::class, 'testMethod']);
+Route::post('/peticion/{param1}', [PeticionesController::class, 'testPostMethod']);
 
 Route::get('hi', function(){
     echo 'Hola mundo';
