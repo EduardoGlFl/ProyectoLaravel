@@ -262,6 +262,14 @@ return [
             'label_color' => 'success',
         ],
 
+        [
+            'text'        => 'Registrar a eventos',
+            'url'         => 'evento-participante',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 'Registrar',
+            'label_color' => 'success',
+        ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',

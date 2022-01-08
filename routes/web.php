@@ -20,14 +20,11 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
 
-
 Route::resource('eventos', 'App\Http\Controllers\EventController');
-
 
 Route::resource('participantes', 'App\Http\Controllers\ParticipantsController');
 
