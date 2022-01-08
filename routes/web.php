@@ -40,6 +40,12 @@ Route::resource('evento-participante', 'App\Http\Controllers\EventParticipantsCo
 
 Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionController');
 
+Route::resource('institucion', 'App\Http\Controllers\InstitucionController');
+
+Route::resource('section', 'App\Http\Controllers\SectionController');
+
+Route::resource('ticket', 'App\Http\Controllers\TicketController');
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

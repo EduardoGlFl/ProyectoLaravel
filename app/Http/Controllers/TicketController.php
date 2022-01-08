@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\institutionType;
 
-class TipoInstitucionController extends Controller
-{
+use App\Models\ticket;
 
+use App\Models\section;
 
+class TicketController extends Controller
+{ 
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,10 +21,16 @@ class TipoInstitucionController extends Controller
      */
     public function index()
     {
-        //
-        $tipoinstitucion = institutionType::all();
-        return view('tipoinstitucion.index',['tipoinstitucion' => $tipoinstitucion]);
-        
+       
+        $tickets = ticket::join('sections', 'sections.id', '=', 'tickets.section_id')
+        ->select('tickets.*', 'sections.descripcion', 'sections.precio')
+        ->get();
+        // $tickets = ticket::join('sections', 'tickets.section_id', '=', 'sections.id')
+        // ->select('tickets.*', 'sections.description', 'sections.precio')
+        // ->get();
+                
+        return view('ticket.index', compact('tickets'));
+
     }
 
     /**
@@ -31,10 +38,12 @@ class TipoInstitucionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create( )
+    public function create()
     {
         //
-        return view('tipoinstitucion.create');
+        //get all section table data
+        $section = section::all();
+        return view('ticket.create',['section' => $section]);
     }
 
     /**
@@ -45,15 +54,17 @@ class TipoInstitucionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+      
+
         $request->validate([
-            'tipo' => 'required',
+            'section_id' => 'required'            
         ]);
 
-        institutionType::create($request->all());
-        return redirect('/tipoinstitucion');
+        ticket::create($request->all());
+        return redirect()->route('ticket.index')->with('status', 'Ticket creado con exito');
+        
     }
-    
 
     /**
      * Display the specified resource.
@@ -64,7 +75,6 @@ class TipoInstitucionController extends Controller
     public function show($id)
     {
         //
-      
     }
 
     /**
@@ -73,11 +83,13 @@ class TipoInstitucionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(institutionType $tipoinstitucion )
+    public function edit(ticket $ticket)
     {
         //
-        return view('tipoinstitucion.edit', compact('tipoinstitucion'));
+        $section = section::all();
+        return view('ticket.edit', ['ticket' => $ticket, 'section' => $section]);
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -89,15 +101,13 @@ class TipoInstitucionController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $tipoinstitucion = institutionType::find($id);
-
         $request->validate([
-            'tipo' => 'required',
+            'section_id' => 'required'
         ]);
 
-        $tipoinstitucion->update($request->all());
-        return redirect('/tipoinstitucion')->with('success', 'Tipo de institución actualizado correctamente');
-     }
+        ticket::find($id)->update($request->all());
+        return redirect()->route('ticket.index')->with('status', 'Ticket actualizado con exito');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -107,9 +117,10 @@ class TipoInstitucionController extends Controller
      */
     public function destroy($id)
     {
-        //
-        $tipoinstitucion = institutionType::find($id);
-        $tipoinstitucion->delete();
-        return redirect('/tipoinstitucion')->with('success', 'Tipo de institución eliminado correctamente');
+        //delete ticket
+        $ticket = ticket::find($id);
+        $ticket->delete();
+        return redirect()->route('ticket.index')->with('status', 'Ticket eliminado con exito');
+
     }
 }

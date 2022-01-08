@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EventParticipantsController extends Controller
+
+use App\Models\section;
+
+class SectionController extends Controller
 {
 
     public function __construct()
@@ -18,7 +21,9 @@ class EventParticipantsController extends Controller
      */
     public function index()
     {
-        return view('evento-participante.index');
+        //
+        $section = section::all();
+        return view('section.index', compact('section'));
     }
 
     /**
@@ -29,6 +34,7 @@ class EventParticipantsController extends Controller
     public function create()
     {
         //
+        return view('section.create');
     }
 
     /**
@@ -40,6 +46,13 @@ class EventParticipantsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'descripcion' => 'required',
+            'precio' => 'required',
+        ]);
+
+        section::create($request->all());
+        return redirect('/section')->with('success', 'Sección creada correctamente');
     }
 
     /**
@@ -59,10 +72,12 @@ class EventParticipantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(section $section)
     {
         //
+        return view('section.edit', compact('section'));
     }
+   
 
     /**
      * Update the specified resource in storage.
@@ -74,6 +89,13 @@ class EventParticipantsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'descripcion' => 'required',
+            'precio' => 'required|numeric',
+        ]);
+
+        section::find($id)->update($request->all());
+        return redirect('/section')->with('success', 'Sección actualizada correctamente');
     }
 
     /**
@@ -85,5 +107,7 @@ class EventParticipantsController extends Controller
     public function destroy($id)
     {
         //
+        section::find($id)->delete();
+        return redirect('/section')->with('success', 'Sección eliminada correctamente');
     }
 }

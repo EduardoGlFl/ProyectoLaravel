@@ -262,8 +262,16 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Tipos Institución',
-            'url'         => 'tipoinstitucion',
+            'text'        => 'Tickets',
+            'url'         => '/ticket',
+            'icon'        => 'far fa-fw fa-file',
+            'label'       => 'Registrar',
+            'label_color' => 'success',
+        ],
+       
+        [
+            'text'        => 'Institución',
+            'url'         => 'institucion',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 'Registrar',
             'label_color' => 'success',
@@ -271,15 +279,22 @@ return [
 
         ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'       => 'Tipo Institución',
+            'icon_color' => 'warning',
+            'url'        => '/tipoinstitucion',
+            'label'       => 'Sub table',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'       => 'Sección',
+            'icon_color' => 'warning',
+            'url'        => '/section',
+            'label'       => 'Sub table',
         ],
+        // [
+        //     'text'       => 'Tickets',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '/ticket',
+        // ],
         [
             'text'       => 'information',
             'icon_color' => 'cyan',
