@@ -292,6 +292,7 @@ return [
             'label_color' => 'success',
         ],
 
+        /*
         [
             'text'        => 'Registrar a eventos',
             'url'         => 'evento-participante',
@@ -299,6 +300,7 @@ return [
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
+        */
 
         ['header' => 'labels'],
         [
