@@ -250,21 +250,21 @@ return [
         [
             'text'        => 'Participantes',
             'url'         => '/participantes',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-users',
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Eventos',
             'url'         => 'eventos',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-calendar-alt',
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Tickets',
             'url'         => '/ticket',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-ticket-alt',
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
@@ -272,8 +272,15 @@ return [
         [
             'text'        => 'Institución',
             'url'         => 'institucion',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-university',
             'label'       => 'Registrar',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Compras',
+            'url'         => '/purchase',
+            'icon'        => 'fas fa-shopping-cart',
+            // 'label'       => 'Registrar',
             'label_color' => 'success',
         ],
 
