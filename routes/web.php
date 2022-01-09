@@ -22,10 +22,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-/*use App\Http\Controllers\CategoríasController;
-Route::get('/admin/{nom}', [CategoríasController::class, 'ver']);
-*/
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
