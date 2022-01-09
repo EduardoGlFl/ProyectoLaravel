@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Registrar Institución </h1>
+    <h1>Registrar Tipo Institución  </h1>
 @stop
 
 @section('content')
@@ -14,37 +14,28 @@
       @endforeach
     </div>
     @endif
-    <form action="{{route('institucion.store')}}" method="POST">
+    <form action="{{route('ticket.store')}}" method="POST">
       @csrf
       
+   
+
       <div class="mb-3">
-        <label for="" class="form-label">Nombre Corto</label>
-        <input id="nombreCorto" name="nombreCorto" type="text" class="form-control" tabindex="1" >
-      </div>
-      
-      <div class="mb-3">
-          <label for="" class="form-label">Nombre Largo</label>
-          <input id="nombreLargo" name="nombreLargo" type="text" class="form-control" tabindex="2" >
-        </div>
-       
-      
-         <div class="mb-3">
-          <label for="" class="form-label">Tipo</label>
-          <select name="institution_types_id" id="institution_types_id" class="form-control" tabindex="3">
-          <option value="">--- Seleccioné tipo Institución ---</option>
-             @foreach($institucion as $ti)
-             <option value="{{$ti->id}}">{{$ti-> tipo}}</option>
+          <label for="" class="form-label">Detalle Ticket</label>
+          <select name="section_id" id="section_id" class="form-control" tabindex="3">
+          <option value="">--- Seleccioné ticket  ---</option>
+             @foreach($section as $sec)
+             <option value="{{$sec->id}}" ><span class="p-4 text-gray-500 bg-red">Descripción:</span> {{$sec-> descripcion}} Precio:${{$sec-> precio}} MX</option>
              @endforeach
           </select>
         </div>
+      
+   
     
-     
-    
-     
-
     
 
-      <a href="/eventos" class="btn btn-secondary" tabindex="5">Cancelar</a>
+     
+
+      <a href="/ticket" class="btn btn-secondary" tabindex="5">Cancelar</a>
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\EventParticipantsController;
 use App\Http\Controllers\TipoInstitucionController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,9 +36,18 @@ Route::resource('tipoinstitucion', 'App\Http\Controllers\TipoInstitucionControll
 
 Route::resource('institucion', 'App\Http\Controllers\InstitucionController');
 
+Route::resource('section', 'App\Http\Controllers\SectionController');
+
+Route::resource('ticket', 'App\Http\Controllers\TicketController');
+
+Route::resource('purchase', 'App\Http\Controllers\ComprasController');
+
+Route::resource('purchasedetails', 'App\Http\Controllers\ComprasDetalleController');
+
+
+
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Route::get('events', [EventController::class, 'show']);
-

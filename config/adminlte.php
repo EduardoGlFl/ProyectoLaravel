@@ -250,27 +250,43 @@ return [
         [
             'text'        => 'Participantes',
             'url'         => '/participantes',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-users',
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
         [
             'text'        => 'Eventos',
             'url'         => 'eventos',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-calendar-alt',
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Tipos Institución',
-            'url'         => 'tipoinstitucion',
-            'icon'        => 'far fa-fw fa-file',
+            'text'        => 'Tickets',
+            'url'         => '/ticket',
+            'icon'        => 'fas fa-ticket-alt',
             'label'       => 'Registrar',
             'label_color' => 'success',
         ],
+       
         [
             'text'        => 'Institución',
             'url'         => 'institucion',
+            'icon'        => 'fas fa-university',
+            'label'       => 'Registrar',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Compras',
+            'url'         => '/purchase',
+            'icon'        => 'fas fa-shopping-cart',
+            // 'label'       => 'Registrar',
+            'label_color' => 'success',
+        ],
+
+        [
+            'text'        => 'Registrar a eventos',
+            'url'         => 'evento-participante',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 'Registrar',
             'label_color' => 'success',
@@ -286,15 +302,22 @@ return [
 
         ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'       => 'Tipo Institución',
+            'icon_color' => 'warning',
+            'url'        => '/tipoinstitucion',
+            'label'       => 'Sub table',
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text'       => 'Sección',
+            'icon_color' => 'warning',
+            'url'        => '/section',
+            'label'       => 'Sub table',
         ],
+        // [
+        //     'text'       => 'Tickets',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '/ticket',
+        // ],
         [
             'text'       => 'information',
             'icon_color' => 'cyan',

@@ -9,6 +9,11 @@ use App\Models\institutionType;
 
 class InstitucionController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -82,7 +87,6 @@ class InstitucionController extends Controller
    
     {
         //
-        
         $instituciontypes = institutionType::all();
         return view('institucion.edit', ['institucion' => $institucion, 'instituciontypes' => $instituciontypes]);
     }

@@ -29,16 +29,15 @@
     
         <div class="mb-3">
           <label for="" class="form-label">Tipo</label>
-          <select name="institution_types_id" id="institution_types_id" class="form-control" tabindex="3">
-
+          <select name="institution_types_id" id="institution_types_id" class="form-control" tabindex="3"> 
            
+
+            <!-- <option value="{{$institucion->institution_types_id}}">--- Seleccioné tipo Institución ---</option> -->
+            <option value="{{$institucion->institution_types_id}}">--- Seleccioné tipo Institución ---</option>
+            
             @foreach($instituciontypes as $ti)
             <option value="{{$ti->id}}" >{{$ti-> tipo}}</option>
-            @endforeach
-           
-          
-   
-             
+            @endforeach     
          
           </select>
         </div>
