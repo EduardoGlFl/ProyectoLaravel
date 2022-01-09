@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Event;
+use App\Models\event;
 
 class EventController extends Controller
 {
@@ -19,7 +19,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventos = Event::all();
+        $eventos = event::all();
         return view('evento.index',['eventos' => $eventos]);
     }
 
@@ -48,7 +48,7 @@ class EventController extends Controller
             'fechaFin' => 'required',
         ]);
 
-        Event::create($request->all());
+        event::create($request->all());
 
         return redirect('/eventos');
     }
@@ -70,7 +70,7 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $evento)
+    public function edit(event $evento)
     {
         return view ('evento.edit',compact('evento'));
     }
@@ -84,7 +84,7 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $evento = Event::find($id);
+        $evento = event::find($id);
 
         $request->validate([
             'nombre' => 'required',
@@ -106,7 +106,7 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $evento = Event::find($id);
+        $evento = event::find($id);
         $evento->delete();
         return redirect('/eventos');
     }

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\ticket;
-
 use App\Models\section;
 
 class TicketController extends Controller

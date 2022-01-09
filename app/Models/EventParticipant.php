@@ -11,3 +11,4 @@ class eventParticipant extends Model
 
     protected $guarded = [];
 }
+

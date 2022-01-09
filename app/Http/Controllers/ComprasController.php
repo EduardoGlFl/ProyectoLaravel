@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\purchase;
-
 use App\Models\purchaseDetail;
 
 class ComprasController extends Controller

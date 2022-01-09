@@ -3,12 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Models\EventParticipants;
-use App\Models\Institution;
-use App\Models\Event;
+use App\Models\eventParticipant;
+use App\Models\institution;
+use App\Models\event;
 use App\Models\participantType;
-use App\Models\Participant;
+use App\Models\participant;
 
 
 class EventParticipantsController extends Controller
@@ -26,7 +25,7 @@ class EventParticipantsController extends Controller
     public function index()
     {
 
-        $event_participant = EventParticipants::join('events', 'events.id', '=', 'event_participants.events_id')
+        $event_participant = eventParticipant::join('events', 'events.id', '=', 'event_participants.events_id')
         ->join('participants', 'participants.id', '=', 'event_participants.participants_id')
         ->join('participant_types', 'participant_types.id', '=', 'event_participants.participant_types_id')
         ->join('institutions', 'institutions.id', '=', 'event_participants.institutions_id')
@@ -43,10 +42,10 @@ class EventParticipantsController extends Controller
      */
     public function create()
     {
-        $evento = Event::all();
-        $participante = Participant::all();
+        $evento = event::all();
+        $participante = participant::all();
         $tipoparticipante = participantType::all();
-        $institucion = Institution::all();
+        $institucion = institution::all();
         return view('evento-participante.create',['evento' => $evento, 
                                                 'participante' => $participante,
                                                 'tipoparticipante' => $tipoparticipante,
@@ -68,7 +67,7 @@ class EventParticipantsController extends Controller
             'institutions_id' => 'required',
         ]);
 
-        EventParticipants::create($request->all());
+        eventParticipant::create($request->all());
         return redirect('/evento-participante');
     }
 
@@ -89,12 +88,12 @@ class EventParticipantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventParticipants $event_participant)
+    public function edit(eventParticipant $event_participant)
     {
-        $evento = Event::all();
-        $participante = Participant::all();
+        $evento = event::all();
+        $participante = participant::all();
         $tipoparticipante = participantType::all();
-        $institucion = Institution::all();
+        $institucion = institution::all();
         return view('evento-participante.edit', ['event_participant'=>$event_participant, 
                                                 'evento' => $evento, 
                                                 'participante' => $participante,

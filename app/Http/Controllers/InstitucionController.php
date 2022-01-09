@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Institution;
+use App\Models\institution;
 use App\Models\institutionType;
 
 class InstitucionController extends Controller
@@ -22,7 +22,7 @@ class InstitucionController extends Controller
     public function index()
     {
      
-        $institucion = Institution::join('institution_types', 'institution_types.id', '=', 'institutions.institution_types_id')
+        $institucion = institution::join('institution_types', 'institution_types.id', '=', 'institutions.institution_types_id')
         ->select('institutions.*', 'institution_types.tipo')
         ->get();
         
@@ -61,7 +61,7 @@ class InstitucionController extends Controller
             'institution_types_id' => 'required',
         ]);   
 
-        Institution::create($request->all());
+        institution::create($request->all());
         return redirect('/institucion');
 
     }
@@ -83,7 +83,7 @@ class InstitucionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Institution $institucion)
+    public function edit(institution $institucion)
    
     {
         //
@@ -107,7 +107,7 @@ class InstitucionController extends Controller
             'institution_types_id' => 'required',
         ]); 
 
-        Institution::find($id)->update($request->all());
+        institution::find($id)->update($request->all());
         return redirect('/institucion')-> with('success', 'Institucion actualizada');
 
 
@@ -122,7 +122,7 @@ class InstitucionController extends Controller
     public function destroy($id)
     {
         //
-        $institucion = Institution::findOrFail($id);
+        $institucion = institution::findOrFail($id);
         $institucion->delete();
         return redirect('/institucion');
     }

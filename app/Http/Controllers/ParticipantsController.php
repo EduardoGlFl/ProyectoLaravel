@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Participant;
+use App\Models\participant;
 
 class ParticipantsController extends Controller
 {
@@ -18,7 +18,7 @@ class ParticipantsController extends Controller
      */
     public function index()
     {
-        $participantes = Participant::all();
+        $participantes = participant::all();
         return view('participantes.index',['participantes' => $participantes]);
     }
 
@@ -49,7 +49,7 @@ class ParticipantsController extends Controller
             'telefono' => 'required',
         ]);
 
-        Participant::create($request->all());
+        participant::create($request->all());
 
         return redirect('/participantes');
     }
@@ -71,7 +71,7 @@ class ParticipantsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Participant $participante)
+    public function edit(participant $participante)
     {
         return view ('participantes.edit',compact('participante'));
     }
@@ -85,7 +85,7 @@ class ParticipantsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $participantes = Participant::find($id);
+        $participantes = participant::find($id);
 
         $request->validate([
             'nombres' => 'required',
@@ -108,7 +108,7 @@ class ParticipantsController extends Controller
      */
     public function destroy($id)
     {
-        $participante = Participant::find($id);
+        $participante = participant::find($id);
         $participante->delete();
         return redirect('/participantes');
     }
