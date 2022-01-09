@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class eventParticipant extends Model
 {
     use HasFactory;
+
+    //new
+    protected $guarded = [];
 }

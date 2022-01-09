@@ -9,5 +9,6 @@ class eventParticipant extends Model
 {
     use HasFactory;
 
+    //new
     protected $guarded = [];
 }
