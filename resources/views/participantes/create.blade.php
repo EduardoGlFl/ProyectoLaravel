@@ -54,7 +54,7 @@
                     <label for="inputAddress2" class="form-label">Telefono</label>
                     <input id="telefono" name="telefono" type="telephone" class="form-control" placeholder="**********">
                   </div>
-                  <div class="d-grid gap-2 col-6">
+                  <div class="col-12">
                     <button class="btn btn-primary" type="submit">Registrar Participante</button>
                   </div>
                 </form>

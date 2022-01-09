@@ -42,9 +42,6 @@
       <div class=" col-md-auto">
         <a href="eventos/create" class="btn btn-primary" type="button">Registrar Nuevo Evento</a>
       </div>
-      <div class=" col-md-auto">
-        <a href="evento-participante" class="btn btn-primary" type="button">Registrar Participante a Evento</a>
-      </div>
     </div>
 
 @stop
