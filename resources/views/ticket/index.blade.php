@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<table  class="table table-striped" style="width:100%">
+<table  id="ticket"class="table table-striped" style="width:100%">
   <thead>
     <tr>
       <!-- {{-- <th scope="col">#</th> --}} -->
@@ -57,7 +57,7 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"> </script>
 <script>
   $(document).ready(function() {
-    $('#eventos').DataTable({
+    $('#ticket').DataTable({
       "lengthMenu": [
         [5, 10, 50, -1],
         [5, 10, 50, "All"]
